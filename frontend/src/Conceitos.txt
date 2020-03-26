@@ -1,0 +1,73 @@
+    PROPRIEDADES
+
+Propriedades: São elementos utilizados pelos componentes
+
+Se a prorpriedade estiver sendo utilizada como atributo do componente ela sera referenciada assim:
+    <Header title="Texto" /> ...
+    
+    //(Componente Header)
+
+    export default function Header(props) {
+        return(
+            <header>
+                <h1>{props.title}</h1> <--> // Desta forma a palavra "Texto" aparecerá no conteúdo HTML.
+            </header>
+        )
+    }
+
+Se a propriedade estiver sendo utilizada dentro do componente ela sera referenciada assim:
+    <Header> Texto </Header>
+
+    //(Componente Header)
+
+    export default function Header(props) {
+        return(
+            <header>
+                <h1>{props.children}</h1> <--> // Desta foram a palavra "Texto" aparecerá no conteúdo HTML.
+            </header>
+        )
+    }
+
+Se eu quiser apenas utilizar uma das propriedades colocadas, no parametro da função, deve-se colocar apenas a propriedade desejada.
+    
+    export default function Header(children) {
+        return(
+            <header>
+                <h1>{children}</h1> <--> // Desta foram a palavra "Texto" aparecerá no conteúdo HTML.
+            </header>
+        )
+    }
+
+    ESTADO
+
+Estado: é utilizada quando criamos uma variavel com um valor incial, que será alterado, e precisará ser atualizado e renderizado na tela.
+
+
+    IMUTABILIDADE
+
+Imutabilidade: Por uma questão de performace, não se pode alterar o valor do estado de uma maneira direta, por isso, precisamos 
+sobrepor o valor.
+
+EX(contador):
+
+    import React, { useState } from 'react';
+    import Header from './Header';
+
+    function App() {
+        const [counter, setCounter] = useState(0); // Aqui está implementado os conceitos de Estado e Imutabilidade, onde a variavel counter possui uma função setCounter q sobrepõe o valor dela msm, q inicia-se com 0.
+
+        function increment(){
+            setCounter(counter + 1)
+
+            console.log(counter)
+        }
+
+        return (
+            <div>
+                <Header>Contador: {counter}</Header> // Aqui a variavel counter está sendo referenciada dentro do componente Header, através do conceitro de Propriedade.
+                <button onClick={increment}>Incrementar</button>
+            </div>
+        );
+    }
+
+
