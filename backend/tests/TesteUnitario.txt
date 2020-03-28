@@ -1,0 +1,1 @@
+Os testes unitarios, realizam testes isolados de um pedaço da aplicação (testa uma função muito especifica).

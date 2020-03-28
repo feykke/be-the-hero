@@ -1,0 +1,1 @@
+Teste de Integração, são testes que vão testar o fluxos de uma rota inteira da aplicação(testa a funcionalidade de uma aplicação)
